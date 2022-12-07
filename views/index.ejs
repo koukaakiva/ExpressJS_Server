@@ -6,9 +6,37 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Index</title>
     <link rel="stylesheet" href="style.css" />
+    <script>
+      window.addEventListener("DOMContentLoaded", function () {
+        var numberInput = document.getElementById("number"),
+          form = document.getElementById("myForm");
+
+        form.addEventListener("submit", getUrl);
+
+        function getUrl(e) {
+          var number = numberInput.value,
+            url = "http://localhost:3000/numberGuesser/" + number;
+
+          e.preventDefault(); // Prevent the form from redirecting
+          if (url !== "http://localhost:3000/numberGuesser/")
+            window.location.replace(url);
+        }
+      });
+    </script>
   </head>
-  <body>
+  <body style="background-color: brown">
     <script src="index.js"></script>
     <h1>Hello World</h1>
+    <br />
+    <h2><a href="random">Random Number</a></h2>
+    <br />
+    <form id="myForm">
+      <label
+        ><h2>Enter a number: <input type="text" id="number" /></h2
+      ></label>
+      <input type="submit" />
+    </form>
+    <br />
+    <h2><a href="educationalVideo">Educational Video</a></h2>
   </body>
 </html>
