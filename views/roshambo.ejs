@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Ro-Sham-Bo</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .rsb-button {
+        height: 100px;
+        width: 100px;
+        font-size: 50pt;
+      }
+    </style>
+    <script>
+      const symbols = ["✊", "✋", "✌️"];
+
+      window.addEventListener("DOMContentLoaded", function () {
+        var pageText = document.getElementById("rsb-text"),
+          rockButton = document.getElementById("rockButton"),
+          papperButton = document.getElementById("papperButton"),
+          scissorsButton = document.getElementById("scissorsButton");
+
+        rockButton.addEventListener("click", function (event) {
+          shoot(0);
+        });
+        papperButton.addEventListener("click", function (event) {
+          shoot(1);
+        });
+        scissorsButton.addEventListener("click", function (event) {
+          shoot(2);
+        });
+
+        function shoot(symbol) {
+          let x = Math.floor(Math.random() * 3);
+          var result = "";
+          if (symbol == x) result = "It's a draw.";
+          else if (
+            (symbol === 0 && x === 1) ||
+            (symbol === 1 && x === 2) ||
+            (symbol === 2 && x === 0)
+          )
+            result = "You lose.";
+          else result = "You win!";
+          pageText.innerHTML =
+            "You: " +
+            symbols[symbol] +
+            "VS Them: " +
+            symbols[x] +
+            "<br/> " +
+            result;
+        }
+      });
+    </script>
+  </head>
+  <body style="background-color: tan">
+    <h1 id="rsb-text">Rock, Papaer, Scissors, Shoot!</h1>
+    <br />
+    <span>
+      <button id="rockButton" class="rsb-button">✊</button>
+      <button id="papperButton" class="rsb-button">✋</button>
+      <button id="scissorsButton" class="rsb-button">✌️</button>
+    </span>
+    <br />
+    <h2><a href="/..">Home</a></h2>
+  </body>
+</html>

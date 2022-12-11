@@ -22,4 +22,8 @@ app.get("/educationalVideo", (req, res) => {
   res.render("educationalVideo");
 });
 
+app.get("/roshambo", (req, res) => {
+  res.render("roshambo");
+});
+
 app.listen(3000);
